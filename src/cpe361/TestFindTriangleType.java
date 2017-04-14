@@ -10,8 +10,88 @@ import static org.junit.Assert.*;
 */
 
 public class TestFindTriangleType {
-    @Test
-    public void findTriangleType() throws Exception {
+    String expectedOutput;
+    int firstSide;
+    int secondSide;
+    int thirdSide;
 
+    @Test // Found a bug & fixed
+    public void testNotATriangleWithAllZeros() throws Exception {
+        expectedOutput = "Not a Triangle";
+        firstSide = 0;
+        secondSide = 0;
+        thirdSide = 0;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testScalene1() throws Exception {
+        expectedOutput = "Scalene";
+        firstSide = 2;
+        secondSide = 4;
+        thirdSide = 3;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testScalene2() throws Exception {
+        expectedOutput = "Scalene";
+        firstSide = 4;
+        secondSide = 2;
+        thirdSide = 3;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testNotATriangle() throws Exception {
+        expectedOutput = "Not a Triangle";
+        firstSide = 2;
+        secondSide = 2;
+        thirdSide = 4;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testIsosceles1() throws Exception {
+        expectedOutput = "Isosceles";
+        firstSide = 4;
+        secondSide = 4;
+        thirdSide = 2;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testIsosceles2() throws Exception {
+        expectedOutput = "Isosceles";
+        firstSide = 10;
+        secondSide = 8;
+        thirdSide = 8;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testNotATriangleWithAllNegative() throws Exception {
+        expectedOutput = "Not a Triangle";
+        firstSide = -1;
+        secondSide = -1;
+        thirdSide = -1;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testEquilateral() throws Exception {
+        expectedOutput = "Equilateral";
+        firstSide = 5;
+        secondSide = 5;
+        thirdSide = 5;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
     }
 }

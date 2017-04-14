@@ -15,6 +15,16 @@ public class TestFindTriangleType {
     int secondSide;
     int thirdSide;
 
+    @Test
+    public void testNotATriangle1() throws Exception {
+        expectedOutput = "Not a Triangle";
+        firstSide = 2;
+        secondSide = 2;
+        thirdSide = 4;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
     @Test // Found a bug & fixed
     public void testNotATriangleWithAllZeros() throws Exception {
         expectedOutput = "Not a Triangle";
@@ -26,31 +36,21 @@ public class TestFindTriangleType {
     }
 
     @Test
-    public void testScalene1() throws Exception {
-        expectedOutput = "Scalene";
-        firstSide = 2;
-        secondSide = 4;
-        thirdSide = 3;
-        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
-        assertEquals(expectedOutput, triangle.findTriangleType());
-    }
-
-    @Test
-    public void testScalene2() throws Exception {
-        expectedOutput = "Scalene";
-        firstSide = 4;
-        secondSide = 2;
-        thirdSide = 3;
-        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
-        assertEquals(expectedOutput, triangle.findTriangleType());
-    }
-
-    @Test
-    public void testNotATriangle() throws Exception {
+    public void testNotATriangleWithAllNegative() throws Exception {
         expectedOutput = "Not a Triangle";
-        firstSide = 2;
-        secondSide = 2;
-        thirdSide = 4;
+        firstSide = -1;
+        secondSide = -1;
+        thirdSide = -1;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testEquilateral() throws Exception {
+        expectedOutput = "Equilateral";
+        firstSide = 5;
+        secondSide = 5;
+        thirdSide = 5;
         Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
         assertEquals(expectedOutput, triangle.findTriangleType());
     }
@@ -76,21 +76,31 @@ public class TestFindTriangleType {
     }
 
     @Test
-    public void testNotATriangleWithAllNegative() throws Exception {
-        expectedOutput = "Not a Triangle";
-        firstSide = -1;
-        secondSide = -1;
-        thirdSide = -1;
+    public void testIsosceles3() throws Exception {
+        expectedOutput = "Isosceles";
+        firstSide = 10;
+        secondSide = 10;
+        thirdSide = 1;
         Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
         assertEquals(expectedOutput, triangle.findTriangleType());
     }
 
     @Test
-    public void testEquilateral() throws Exception {
-        expectedOutput = "Equilateral";
-        firstSide = 5;
-        secondSide = 5;
-        thirdSide = 5;
+    public void testScalene1() throws Exception {
+        expectedOutput = "Scalene";
+        firstSide = 2;
+        secondSide = 4;
+        thirdSide = 3;
+        Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
+        assertEquals(expectedOutput, triangle.findTriangleType());
+    }
+
+    @Test
+    public void testScalene2() throws Exception {
+        expectedOutput = "Scalene";
+        firstSide = 4;
+        secondSide = 2;
+        thirdSide = 3;
         Triangle triangle = new Triangle(firstSide, secondSide, thirdSide);
         assertEquals(expectedOutput, triangle.findTriangleType());
     }

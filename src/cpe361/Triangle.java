@@ -1,10 +1,12 @@
 package cpe361;
 
-/**
- * Created by Tommie on 14/4/2560.
- */
-
 import java.io.*;
+
+/*
+* Project: UnitTesting
+* Created by Tommie on April 14, 2560 (14/4/2560).
+*/
+
 public class Triangle {
 
     /* Declare side variables and set default values to 0 */
@@ -12,9 +14,9 @@ public class Triangle {
     protected static int secondSide = 0;
     protected static int thirdSide = 0;
 
-    /* Determine which side is the largest */
+    /* Determine which side is the testLargest */
     public static int largest(int side1, int side2, int side3) {
-        if (((side1<=side2) && (side2<=side3)) || ((side2<=side1) || (side1<=side3)))
+        if (((side1<=side2) && (side2<=side3)) || ((side2<=side1) && (side1<=side3))) // Change the second condition from || to &&
             return side3;
         else if (((side1<=side3) && (side3<=side2)) || ((side3<=side1) && (side1<=side2)))
             return side2;
@@ -37,7 +39,7 @@ public class Triangle {
         if (((side1<=side2) && (side2<=side3)) || ((side3<=side2) && (side1<=side3)))
             return side1;
         else if ( ((side2<=side3)&&(side3<=side1))||((side2<=side1)&&(side1<=side3)))
-            return side1;
+            return side2; // Changed from side1 to side2
         else
             return side3;
     }
